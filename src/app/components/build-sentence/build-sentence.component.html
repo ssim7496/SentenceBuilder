@@ -1,0 +1,42 @@
+<div class="container my-3">
+    <h1 class="mb-3">Build a Sentence</h1>
+    <p>Welcome to Sentence Builder builder. In order to start building your sentence, please follow the steps below:</p>
+    <ul>
+        <li>Step 1 - Please select one of the word types</li>
+        <li>Step 2 - Choose a word from one of the selected word types to add to the sentence</li>
+        <li>Step 3 - Once you are happy with your sentence, click on the <strong>Save Sentence</strong> button</li>
+    </ul>
+
+    <div class="my-3">
+        <h3 style="font-style: italic;">{{ getSentence() }}</h3>
+    </div>
+
+    <div>
+        <button type="submit" class="btn btn-primary mx-1" (click)="saveSentence()">Save Sentence</button>
+    </div>
+
+    <div class="container mt-4">
+        <h4 class="my-2">Word Types</h4>
+        <p *ngIf="!wordTypesFound()">No word types found</p>
+        <div *ngIf="wordTypesFound()" class="btn-toolbar" role="toolbar" aria-label="Word type buttongroup" style="overflow-x: auto;">
+            <div class="btn-group mr-2 btn-group-sm" role="group" aria-label="Word type group">
+                <tr *ngFor="let wordType of wordTypes; let i = index;">
+                    <button type="button" class="btn btn-outline-primary mx-1" (click)="wordTypeClicked(i)">{{
+                        wordType.description }}</button>
+                </tr>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-4">
+        <h4 class="my-2">Words</h4>
+        <p *ngIf="!wordsFound()">No words found</p>
+        <div *ngIf="wordsFound()" class="btn-toolbar" role="toolbar" aria-label="Words buttongroup" style="overflow-x: auto;">
+            <div class="btn-group mr-2 btn-group-sm" role="group" aria-label="Words group">
+                <tr *ngFor="let word of words; let i = index;">
+                    <button type="button" class="btn btn-outline-primary mx-1 btn-sm" (click)="wordClicked(i)">{{
+                        word.description }}</button>
+                </tr>
+            </div>
+        </div>
+    </div>
+</div>

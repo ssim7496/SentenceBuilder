@@ -1,0 +1,19 @@
+<div class="container my-5">
+    <h1 class="mb-3">Sentence History</h1>
+
+    <p *ngIf="!sentencesFound()">No sentences found</p>
+    <div *ngIf="sentencesFound()" class="table-responsive">
+        <table class="table">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Your previous sentences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let sentence of sentences">
+                    <td scope="row">#{{ sentence.id }} - {{ sentence.description }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
